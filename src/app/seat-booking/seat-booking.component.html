@@ -1,0 +1,15 @@
+<div class="seat-layout">
+<div *ngFor="let row of coach; let rowIndex = index" class="seat-row">
+  <span
+    *ngFor="let seat of row; let seatIndex = index"
+    [ngClass]="{ 'booked-seat': seat === 1, 'available-seat': seat === 0 }"
+  >
+    {{ rowIndex + 1 }}-{{ seatIndex + 1 }}
+  </span>
+</div>
+</div>
+
+<div class="booking-controls">
+<input type="number" [(ngModel)]="seatsToBook" placeholder="Enter seats to book (1-7)" />
+<button (click)="bookSeats(seatsToBook)">Book Seats</button>
+</div>
